@@ -19,7 +19,7 @@ router.post("/add", async (req, res) => {
   }
 });
 
-//Get All students(admin)
+//list All students(admin)
 router.post("/list", async (req, res) => {
   try {
     const _b = req.body;
@@ -42,5 +42,18 @@ router.post("/list", async (req, res) => {
     res.status(400).json({ success: false, Error: error });
   }
 });
+
+//anyone can see students
+router.get("/get", async (req, res) => {
+    try {
+      const _b = req.body;
+
+        let student = await Student.find();
+        res.status(200).json({ succes: true, data: student });
+
+    } catch (error) {
+      res.status(400).json({ success: false, Error: error });
+    }
+  });
 
 module.exports = router;
