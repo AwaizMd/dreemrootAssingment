@@ -6,7 +6,7 @@ const Student = mongoose.model('Student', new mongoose.Schema({
         type: String
     },
     age: {
-        type: String
+        type: Number
     },
     class: {
         type: String
